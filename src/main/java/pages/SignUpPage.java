@@ -175,8 +175,16 @@ public class SignUpPage extends BasePage {
         ClickUtils.safeClick(driver, btnContinue, 5);
     }
 
-    public WebElement getEmailElement() {
-        return driver.findElement(txtEmail);
+    public boolean tooltipEmail() {
+        return !driver.findElement(txtEmail).getAttribute("validationMessage").isEmpty();
+    }
+
+    public boolean tooltipNameRequired() {
+        return driver.findElement(txtName).getAttribute("validationMessage").equalsIgnoreCase("Please fill out this field.");
+    }
+
+    public boolean tooltipEmailRequired() {
+        return driver.findElement(txtEmail).getAttribute("validationMessage").equalsIgnoreCase("Please fill out this field.");
     }
 
     public WebElement getNameElement() {
@@ -191,8 +199,8 @@ public class SignUpPage extends BasePage {
         return driver.findElement(txtName2).getAttribute("validationMessage");
     }
 
-    public String tooltipPassword() {
-        return driver.findElement(txtPassword).getAttribute("validationMessage");
+    public boolean tooltipPassword() {
+        return driver.findElement(txtPassword).getAttribute("validationMessage").equalsIgnoreCase("Please fill out this field.");
     }
 
     public String tooltipFirstName() {

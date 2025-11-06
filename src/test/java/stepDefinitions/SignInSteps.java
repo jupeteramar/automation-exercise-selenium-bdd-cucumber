@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pages.SignInPage;
 import utils.ScreenshotUtils;
+import utils.WaitUtil;
 
 public class SignInSteps {
 
@@ -49,6 +50,7 @@ public class SignInSteps {
 
     @Then("the user should be directed to the Products page")
     public void the_user_should_be_directed_to_the_Products_page() {
+        WaitUtil.waitForUrl(driver, "https://automationexercise.com/", 10);
         Assert.assertEquals(driver.getCurrentUrl(), "https://automationexercise.com/", "Engk!");
     }
 

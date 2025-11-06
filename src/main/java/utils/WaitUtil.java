@@ -34,4 +34,11 @@ public class WaitUtil {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.titleIs(title));
     }
+
+    // Wait for URL
+    public static void waitForUrl(WebDriver driver, String expectedUrl, int timeout) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+        wait.until(ExpectedConditions.urlToBe(expectedUrl));
+    }
+
 }
